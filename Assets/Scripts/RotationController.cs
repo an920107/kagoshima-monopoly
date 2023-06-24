@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class RotationController : MonoBehaviour
 {
-    public Quaternion initialRotation { get; private set; }
+    public Quaternion InitialRotation { get; private set; }
 
     private bool isRotating = false;
     private Vector3 axis;
     private Quaternion departure;
-    private float deltaDegree;
+    private float angle;
     private float acceleration;
     private float valocity;
     private float time;
     private float rotatedTime;
-    private float rotatedDegree;
+    private float rotatedAngle;
 
     void Start()
     {
-        initialRotation = gameObject.transform.rotation;
+        InitialRotation = gameObject.transform.rotation;
     }
 
     void Update()
@@ -31,29 +31,29 @@ public class RotationController : MonoBehaviour
             else
                 valocity -= acceleration * Time.deltaTime;
             gameObject.transform.Rotate(axis, valocity * Time.deltaTime);
-            rotatedDegree += valocity * Time.deltaTime;
+            rotatedAngle += valocity * Time.deltaTime;
             rotatedTime += Time.deltaTime;
-            if (rotatedTime > time || Math.Abs(rotatedDegree) >= Math.Abs(deltaDegree))
+            if (rotatedTime > time || Math.Abs(rotatedAngle) >= Math.Abs(angle))
             {
                 gameObject.transform.rotation = departure;
-                gameObject.transform.Rotate(axis, deltaDegree);
+                gameObject.transform.Rotate(axis, angle);
                 isRotating = false;
             }
         }
     }
 
-    public void Rotate(Vector3 axis, float deltaDegree, float time)
+    public void Rotate(Vector3 axis, float angle, float time, bool animation = true)
     {
         if (isRotating)
             return;
 
         departure = gameObject.transform.rotation;
         this.axis = axis;
-        this.deltaDegree = deltaDegree;
+        this.angle = angle;
         this.time = time;
-        acceleration = deltaDegree * 4 / time / time;
+        acceleration = animation ? (angle * 4 / time / time) : 0;
         rotatedTime = 0f;
-        rotatedDegree = 0f;
+        rotatedAngle = 0f;
         valocity = 0f;
         isRotating = true;
     }

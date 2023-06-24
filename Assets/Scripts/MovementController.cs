@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MotivationController : MonoBehaviour
 {
-    public Vector3 initialPosition { get; private set; }
+    public Vector3 InitialPosition { get; private set; }
 
     private bool isMoving = false;
     private Vector3 departure;
@@ -17,7 +17,7 @@ public class MotivationController : MonoBehaviour
 
     void Start()
     {
-        initialPosition = gameObject.transform.position;
+        InitialPosition = gameObject.transform.position;
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class MotivationController : MonoBehaviour
                 valocity -= acceleration * Time.deltaTime;
             gameObject.transform.position += valocity * Time.deltaTime;
             movedTime += Time.deltaTime;
-            if ((current - departure).magnitude > (destination - departure).magnitude)
+            if (movedTime > time || (current - departure).magnitude > (destination - departure).magnitude)
             {
                 gameObject.transform.position = destination;
                 isMoving = false;
@@ -39,7 +39,7 @@ public class MotivationController : MonoBehaviour
         }
     }
 
-    public void Move(Vector3 destination, float time)
+    public void MoveTo(Vector3 destination, float time)
     {
         departure = gameObject.transform.position;
         this.destination = destination;
@@ -50,8 +50,8 @@ public class MotivationController : MonoBehaviour
         isMoving = true;
     }
 
-    public void Move(float time)
+    public void MoveToInitialPosition(float time)
     {
-        Move(initialPosition, time);
+        MoveTo(InitialPosition, time);
     }
 }
