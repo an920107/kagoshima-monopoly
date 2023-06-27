@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: {fileID: 4335661364821998945, guid: be257f6904f006c439dc02de50ba574f, type: 3}
+  descriptionText: {fileID: 4335661364821998945, guid: f225cc4dadef1454f86d0e12b8189d6e, type: 3}

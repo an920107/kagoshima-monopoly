@@ -352,6 +352,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7efd28c22a6b54ebb3a96df1d24af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InitialPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  isMoving: 0
+  departure: {x: 0, y: 0, z: 0}
+  destination: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  valocity: {x: 0, y: 0, z: 0}
+  time: 0
+  movedTime: 0
 --- !u!1 &1498051099
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +480,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8034894c4c916d54188c09635224aa2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InitialRotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+  isRotating: 0
+  axis: {x: 0, y: 0, z: 0}
+  departure: {x: 0, y: 0, z: 0, w: 0}
+  angle: 0
+  acceleration: 0
+  valocity: 0
+  time: 0
+  rotatedTime: 0
+  rotatedAngle: 0
 --- !u!114 &1498051105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 8054984292844471630, guid: 42e6f4a7cc66ea346a824128f0c1f0e7, type: 3}
+  blocksDataJson: {fileID: 4900000, guid: 0cedf36b9fb341b498df72634a67f7e0, type: 3}
+  blocksData: []
 --- !u!1 &1892636438
 GameObject:
   m_ObjectHideFlags: 0

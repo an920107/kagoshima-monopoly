@@ -1,4 +1,7 @@
-﻿0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-=[]{}\|:;'"/?
+﻿0123456789
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+~!@#$%^&*()_+`-={}\|:;'"/?
 あいうえお
 ぁぃぅぇぉ
 かきくけこ
@@ -17,3 +20,5 @@
 らりるれろ
 わをん
 開始
+經過獲得￥
+鹿兒島車站

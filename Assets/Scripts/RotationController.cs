@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationController : MonoBehaviour
-{
+public class RotationController : MonoBehaviour {
     public Quaternion InitialRotation { get; private set; }
 
     private bool isRotating = false;
@@ -17,15 +14,12 @@ public class RotationController : MonoBehaviour
     private float rotatedTime;
     private float rotatedAngle;
 
-    void Start()
-    {
+    void Start() {
         InitialRotation = gameObject.transform.rotation;
     }
 
-    void Update()
-    {
-        if (isRotating)
-        {
+    void Update() {
+        if (isRotating) {
             if (rotatedTime * 2 < time)
                 valocity += acceleration * Time.deltaTime;
             else
@@ -33,8 +27,7 @@ public class RotationController : MonoBehaviour
             gameObject.transform.Rotate(axis, valocity * Time.deltaTime);
             rotatedAngle += valocity * Time.deltaTime;
             rotatedTime += Time.deltaTime;
-            if (rotatedTime > time || Math.Abs(rotatedAngle) >= Math.Abs(angle))
-            {
+            if (rotatedTime > time || Math.Abs(rotatedAngle) >= Math.Abs(angle)) {
                 gameObject.transform.rotation = departure;
                 gameObject.transform.Rotate(axis, angle);
                 isRotating = false;
@@ -42,8 +35,7 @@ public class RotationController : MonoBehaviour
         }
     }
 
-    public void Rotate(Vector3 axis, float angle, float time, bool animation = true)
-    {
+    public void Rotate(Vector3 axis, float angle, float time, bool animation = true) {
         if (isRotating)
             return;
 
