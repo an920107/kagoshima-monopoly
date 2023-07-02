@@ -8,79 +8,79 @@
     "1": {
         "type": "Land",
         "location": "Bottom",
-        "title": "鹿兒島車站",
+        "title": "鹿兒島農家",
         "description": "￥2,000"
     },
     "2": {
         "type": "Land",
         "location": "Bottom",
-        "title": "",
-        "description": ""
+        "title": "老人之家",
+        "description": "￥2,200"
     },
     "3": {
-        "type": "Land",
+        "type": "Event",
         "location": "Bottom",
-        "title": "",
-        "description": ""
+        "title": "機會",
+        "description": "抽取一張機會卡"
     },
     "4": {
-        "type": "Land",
+        "type": "Facility",
         "location": "Bottom",
-        "title": "",
-        "description": ""
+        "title": "JR 鐵路",
+        "description": "￥5,000"
     },
     "5": {
         "type": "Land",
         "location": "Bottom",
-        "title": "",
-        "description": ""
+        "title": "上伊集院車站",
+        "description": "￥2,500"
     },
     "6": {
         "type": "Land",
         "location": "Bottom",
-        "title": "",
-        "description": ""
+        "title": "松元平野岡公園",
+        "description": "￥2,800"
     },
     "7": {
-        "type": "Event",
+        "type": "Stop",
         "location": "LeftBottom",
-        "title": "",
-        "description": ""
+        "title": "櫻島火山",
+        "description": "失足跌落\n暫停一回合"
     },
     "8": {
-        "type": "Event",
+        "type": "Land",
         "location": "Left",
-        "title": "",
+        "title": "櫻島旬彩館",
         "description": ""
     },
     "9": {
-        "type": "Event",
+        "type": "Facility",
         "location": "Left",
-        "title": "",
-        "description": ""
+        "title": "櫻島港渡輪",
+        "description": "￥5,000"
     },
     "10": {
-        "type": "Event",
+        "type": "Land",
         "location": "Left",
-        "title": "",
+        "title": "月讀神社",
         "description": ""
     },
     "11": {
-        "type": "Event",
+        "type": "Land",
         "location": "Left",
-        "title": "",
+        "title": "櫻岳陶藝",
         "description": ""
     },
     "12": {
         "type": "Event",
         "location": "Left",
-        "title": "",
-        "description": ""
+        "title": "機會",
+        "description": "抽取一張機會卡"
     },
     "13": {
-        "type": "Event",
+        "type": "Land",
         "location": "Left",
-        "title": "",
+        "title": "吶喊塑像",
         "description": ""
     },
     "14": {
@@ -90,39 +90,39 @@
         "description": ""
     },
     "15": {
-        "type": "Event",
+        "type": "Land",
         "location": "Top",
-        "title": "",
+        "title": "環境未來館",
         "description": ""
     },
     "16": {
         "type": "Event",
         "location": "Top",
-        "title": "",
-        "description": ""
+        "title": "機會",
+        "description": "抽取一張機會卡"
     },
     "17": {
-        "type": "Event",
+        "type": "Facility",
         "location": "Top",
-        "title": "",
-        "description": ""
+        "title": "鹿兒島市電",
+        "description": "￥5,000"
     },
     "18": {
-        "type": "Event",
+        "type": "Land",
         "location": "Top",
-        "title": "",
+        "title": "鹿兒島大學",
         "description": ""
     },
     "19": {
-        "type": "Event",
+        "type": "Land",
         "location": "Top",
-        "title": "",
+        "title": "天文館",
         "description": ""
     },
     "20": {
-        "type": "Event",
+        "type": "Land",
         "location": "Top",
-        "title": "",
+        "title": "鹿兒島中央車站",
         "description": ""
     },
     "21": {
@@ -132,39 +132,39 @@
         "description": ""
     },
     "22": {
-        "type": "Event",
+        "type": "Land",
         "location": "Right",
-        "title": "",
+        "title": "Lawson",
         "description": ""
     },
     "23": {
-        "type": "Event",
+        "type": "Land",
         "location": "Right",
-        "title": "",
+        "title": "博多車站",
         "description": ""
     },
     "24": {
-        "type": "Event",
+        "type": "Land",
         "location": "Right",
-        "title": "",
+        "title": "唐吉訶德",
         "description": ""
     },
     "25": {
         "type": "Event",
         "location": "Right",
-        "title": "",
-        "description": ""
+        "title": "機會",
+        "description": "抽取一張機會卡"
     },
     "26": {
-        "type": "Event",
+        "type": "Facility",
         "location": "Right",
-        "title": "",
-        "description": ""
+        "title": "新幹線",
+        "description": "￥5,000"
     },
     "27": {
-        "type": "Event",
+        "type": "Land",
         "location": "Right",
-        "title": "",
+        "title": "福岡機場",
         "description": ""
     }
 }
