@@ -108,5 +108,6 @@ public enum BlockType {
     Land,
     Facility,
     Start,
-    Event
+    Event,
+    Stop,
 }
