@@ -37,7 +37,8 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             titleText.gameObject.transform.Rotate(new Vector3(0f, 0f, 1f), 45);
             descriptionText.gameObject.transform.Rotate(new Vector3(0f, 0f, 1f), 45); 
         }
-        descriptionText.gameObject.transform.Translate(new Vector3(0f, -0.5f, 0f), Space.Self);
+        titleText.gameObject.transform.Translate(new Vector3(0f, -0.5f, 0f), Space.Self);
+        descriptionText.gameObject.transform.Translate(new Vector3(0f, -1f, 0f), Space.Self);
 
         titleText.text = Data.Title;
         descriptionText.text = Data.Description;
