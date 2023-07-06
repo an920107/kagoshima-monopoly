@@ -3,168 +3,196 @@
         "type": "Start",
         "location": "RightBottom",
         "title": "開始",
-        "description": "經過獲得\n￥20,000"
+        "description": "經過獲得\n￥20,000",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "1": {
         "type": "Land",
         "location": "Bottom",
         "title": "鹿兒島農家",
-        "description": "￥2,000"
+        "description": "￥2,000",
+        "background_color": [1, 0.75, 0.75, 1]
     },
     "2": {
         "type": "Land",
         "location": "Bottom",
         "title": "老人之家",
-        "description": "￥2,200"
+        "description": "￥2,200",
+        "background_color": [1, 0.75, 0.75, 1]
     },
     "3": {
         "type": "Event",
         "location": "Bottom",
         "title": "機會",
-        "description": "抽取一張機會卡"
+        "description": "抽取一張機會卡",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "4": {
         "type": "Facility",
         "location": "Bottom",
         "title": "JR 鐵路",
-        "description": "￥5,000"
+        "description": "￥5,000",
+        "background_color": [ 0.75, 0.75, 0.75, 1 ]
     },
     "5": {
         "type": "Land",
         "location": "Bottom",
         "title": "上伊集院車站",
-        "description": "￥2,500"
+        "description": "￥2,500",
+        "background_color": [1, 0.75, 0.75, 1]
     },
     "6": {
         "type": "Land",
         "location": "Bottom",
         "title": "松元平野岡公園",
-        "description": "￥2,800"
+        "description": "￥2,800",
+        "background_color": [1, 0.75, 0.75, 1]
     },
     "7": {
         "type": "Stop",
         "location": "LeftBottom",
         "title": "櫻島火山",
-        "description": "失足跌落\n暫停一回合"
+        "description": "失足跌落\n暫停一回合",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "8": {
         "type": "Land",
         "location": "Left",
         "title": "櫻島旬彩館",
-        "description": ""
+        "description": "￥3,100",
+        "background_color": [ 1, 0.9, 0.6, 1 ]
     },
     "9": {
         "type": "Facility",
         "location": "Left",
         "title": "櫻島港渡輪",
-        "description": "￥5,000"
+        "description": "￥5,000",
+        "background_color": [ 0.75, 0.75, 0.75, 1 ]
     },
     "10": {
         "type": "Land",
         "location": "Left",
         "title": "月讀神社",
-        "description": ""
+        "description": "￥3,300",
+        "background_color": [ 1, 0.9, 0.6, 1 ]
     },
     "11": {
         "type": "Land",
         "location": "Left",
         "title": "櫻岳陶藝",
-        "description": ""
+        "description": "￥3,900",
+        "background_color": [ 1, 0.9, 0.6, 1 ]
     },
     "12": {
         "type": "Event",
         "location": "Left",
         "title": "機會",
-        "description": "抽取一張機會卡"
+        "description": "抽取一張機會卡",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "13": {
         "type": "Land",
         "location": "Left",
         "title": "吶喊塑像",
-        "description": ""
+        "description": "￥3,500",
+        "background_color": [ 1, 0.9, 0.6, 1 ]
     },
     "14": {
         "type": "Event",
         "location": "LeftTop",
         "title": "",
-        "description": ""
+        "description": "",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "15": {
         "type": "Land",
         "location": "Top",
         "title": "環境未來館",
-        "description": ""
+        "description": "￥4,400",
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "16": {
         "type": "Event",
         "location": "Top",
         "title": "機會",
-        "description": "抽取一張機會卡"
+        "description": "抽取一張機會卡",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "17": {
         "type": "Facility",
         "location": "Top",
         "title": "鹿兒島市電",
-        "description": "￥5,000"
+        "description": "￥5,000",
+        "background_color": [ 0.75, 0.75, 0.75, 1 ]
     },
     "18": {
         "type": "Land",
         "location": "Top",
         "title": "鹿兒島大學",
-        "description": ""
+        "description": "￥4,000",
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "19": {
         "type": "Land",
         "location": "Top",
         "title": "天文館",
-        "description": ""
+        "description": "￥4,500",
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "20": {
         "type": "Land",
         "location": "Top",
         "title": "鹿兒島中央車站",
-        "description": ""
+        "description": "￥4,800",
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "21": {
         "type": "Event",
         "location": "RightTop",
         "title": "",
-        "description": ""
+        "description": "",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "22": {
         "type": "Land",
         "location": "Right",
         "title": "Lawson",
-        "description": ""
+        "description": "￥5,100",
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "23": {
         "type": "Land",
         "location": "Right",
         "title": "博多車站",
-        "description": ""
+        "description": "￥5,400",
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "24": {
         "type": "Land",
         "location": "Right",
         "title": "唐吉訶德",
-        "description": ""
+        "description": "￥6,000",
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "25": {
         "type": "Event",
         "location": "Right",
         "title": "機會",
-        "description": "抽取一張機會卡"
+        "description": "抽取一張機會卡",
+        "background_color": [ 1, 1, 1, 1 ]
     },
     "26": {
         "type": "Facility",
         "location": "Right",
         "title": "新幹線",
-        "description": "￥5,000"
+        "description": "￥5,000",
+        "background_color": [ 0.75, 0.75, 0.75, 1 ]
     },
     "27": {
         "type": "Land",
         "location": "Right",
         "title": "福岡機場",
-        "description": ""
+        "description": "￥6,500",
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     }
 }

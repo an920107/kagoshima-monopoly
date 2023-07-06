@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler {
     [SerializeField] private TextMeshPro titleText;
@@ -42,6 +44,8 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         titleText.text = Data.Title;
         descriptionText.text = Data.Description;
+
+        GetComponent<Renderer>().material.color = Data.BackgroundColor;
     }
 
     void Update() {
@@ -65,11 +69,11 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        GetComponent<Renderer>().material.color = new Color(1f, 1f, 0.6f);
+        GetComponent<Renderer>().material.color = Data.BackgroundColor * 0.9f;
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+        GetComponent<Renderer>().material.color = Data.BackgroundColor;
     }
 }
 
@@ -86,11 +90,20 @@ public class BlockData {
     [JsonPropertyName("description")]
     public string Description { get; set; }
 
+    [JsonPropertyName("background_color")]
+    public List<float> BackgroundColorList {
+        get => new(new float[] { BackgroundColor.r, BackgroundColor.g, BackgroundColor.b, BackgroundColor.a });
+        set => BackgroundColor = new Color(value[0], value[1], value[2], value[3]);
+    }
+
     [JsonIgnore]
     public BlockType Type { get; set; }
 
     [JsonIgnore]
     public BlockLocation Location { get; set; }
+
+    [JsonIgnore]
+    public Color BackgroundColor { get; set; }
 }
 
 public enum BlockLocation {
