@@ -109,7 +109,7 @@
         "location": "Top",
         "title": "環境未來館",
         "description": "￥4,400",
-        "background_color": [ 0.7, 0.85, 1, 1 ]
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "16": {
         "type": "Event",
@@ -130,21 +130,21 @@
         "location": "Top",
         "title": "鹿兒島大學",
         "description": "￥4,000",
-        "background_color": [ 0.7, 0.85, 1, 1 ]
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "19": {
         "type": "Land",
         "location": "Top",
         "title": "天文館",
         "description": "￥4,500",
-        "background_color": [ 0.7, 0.85, 1, 1 ]
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "20": {
         "type": "Land",
         "location": "Top",
         "title": "鹿兒島中央車站",
         "description": "￥4,800",
-        "background_color": [ 0.7, 0.85, 1, 1 ]
+        "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "21": {
         "type": "Event",
@@ -158,21 +158,21 @@
         "location": "Right",
         "title": "Lawson",
         "description": "￥5,100",
-        "background_color": [ 0.75, 1, 0.75, 1 ]
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "23": {
         "type": "Land",
         "location": "Right",
         "title": "博多車站",
         "description": "￥5,400",
-        "background_color": [ 0.75, 1, 0.75, 1 ]
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "24": {
         "type": "Land",
         "location": "Right",
         "title": "唐吉訶德",
         "description": "￥6,000",
-        "background_color": [ 0.75, 1, 0.75, 1 ]
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     },
     "25": {
         "type": "Event",
@@ -193,6 +193,6 @@
         "location": "Right",
         "title": "福岡機場",
         "description": "￥6,500",
-        "background_color": [ 0.75, 1, 0.75, 1 ]
+        "background_color": [ 0.7, 0.85, 1, 1 ]
     }
 }
