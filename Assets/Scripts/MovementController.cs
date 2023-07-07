@@ -11,7 +11,6 @@ public class MotivationController : MonoBehaviour {
     private float time;
     private float movedTime;
 
-
     void Start() {
         InitialPosition = gameObject.transform.position;
     }

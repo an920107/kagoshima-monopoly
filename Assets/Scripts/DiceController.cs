@@ -9,13 +9,17 @@ public class DiceController : MonoBehaviour {
 
     private Rigidbody rb;
 
-    void Start() {
+    void Awake() {
         IsStill = true;
+    }
+
+    void Start() {
         rb = GetComponent<Rigidbody>();
+        Throw();
     }
 
     void FixedUpdate() {
-        if (!IsStill && transform.localPosition.y < 0.25f && rb.velocity.magnitude < 0.1f)
+        if (!IsStill && transform.localPosition.y < 0.4f && rb.velocity.magnitude < 1f)
             IsStill = true;
 
         float maxY = float.MinValue;
@@ -38,7 +42,8 @@ public class DiceController : MonoBehaviour {
         gameObject.transform.position = new Vector3(
             Random.Range(-10f, 10f), Random.Range(30f, 40f), Random.Range(-70f, -80f));
         rb.velocity = Vector3.zero;
-        rb.AddForce(0f, 0f, Random.Range(160f, 210f));
+        rb.AddForce(0f, 0f, Random.Range(160f, 200f));
+        rb.AddTorque(Random.Range(0f, 90f), Random.Range(0f, 90f), Random.Range(0f, 90f));
         IsStill = false;
     }
 }
