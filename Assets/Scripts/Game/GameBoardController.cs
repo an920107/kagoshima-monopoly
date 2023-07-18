@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using UnityEngine;
 
-public class Game : MonoBehaviour {
+public class GameBoardController : MonoBehaviour {
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject dice;
     [SerializeField] private TextAsset blocksDataJson;
