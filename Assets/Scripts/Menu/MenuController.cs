@@ -4,12 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
+
+    [SerializeField] private List<GameObject> Panels;
+
     void Start() {
 
     }
 
     void Update() {
 
+    }
+
+    void OnEnable() {
+        if (Panels != null && Panels.Count > 0)
+            Panels[0].SetActive(true);
+        for (int i = 1; i < Panels.Count; i++)
+            Panels[i].SetActive(false);
     }
 
     public void ExitApplication() {
