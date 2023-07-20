@@ -42,16 +42,13 @@ public class GameBoardController : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.A))
-            GetComponent<RotationController>().Rotate(new Vector3(0f, 1f, 0f), -90f, 2f);
+            RotateClockwise();
 
         if (Input.GetKeyDown(KeyCode.D))
-            GetComponent<RotationController>().Rotate(new Vector3(0f, 1f, 0f), 90f, 2f);
+            RotateCounterClockwise();
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            diceHasResult = false;
-            foreach (var dice in dices)
-                dice.GetComponent<DiceController>().Throw();
-        }
+        if (Input.GetKeyDown(KeyCode.Space))
+            ThrowDice();
 
         if (!diceHasResult)
             GetDiceResult();
@@ -67,5 +64,19 @@ public class GameBoardController : MonoBehaviour {
         }
         Debug.Log(sum);
         diceHasResult = true;
+    }
+
+    public void ThrowDice() {
+        diceHasResult = false;
+        foreach (var dice in dices)
+            dice.GetComponent<DiceController>().Throw();
+    }
+
+    public void RotateClockwise() {
+        GetComponent<RotationController>().Rotate(new Vector3(0f, 1f, 0f), -90f, 2f);
+    }
+
+    public void RotateCounterClockwise() {
+        GetComponent<RotationController>().Rotate(new Vector3(0f, 1f, 0f), 90f, 2f);
     }
 }
