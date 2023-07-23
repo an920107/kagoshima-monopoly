@@ -8,7 +8,7 @@ public class ColorSettingController : MonoBehaviour {
 
     [SerializeField] private GameObject colorSettingPrefab;
 
-    private List<GameObject> colorSettings = new();
+    private readonly List<GameObject> colorSettings = new();
     private bool isReady = false;
 
     private readonly List<Tuple<Color, Color>> colorsPool = new() {
@@ -70,5 +70,11 @@ public class ColorSettingController : MonoBehaviour {
 
     public Tuple<Color, Color> GetColorFromIndex(int index) {
         return colorsPool[index];
+    }
+
+    public void StartGame() {
+        FindObjectOfType<GameBoardController>().GeneratePlayerAndStart(colorSettings.ConvertAll<Color>(
+            new((x) => { return colorsPool[x.GetComponentInChildren<PlayerSettingController>().ColorIndex].Item1; }
+        )));
     }
 }

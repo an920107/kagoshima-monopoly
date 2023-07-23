@@ -5,13 +5,23 @@ using UnityEngine;
 public class GameBoardController : MonoBehaviour {
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject dice;
+    [SerializeField] private GameObject player;
     [SerializeField] private TextAsset blocksDataJson;
+
+    public event DiceHasResultEventHandler DiceHasResult;
 
     private const int BLOCKS_COUNT = 28;
     private readonly List<GameObject> blocks = new();
     private readonly List<GameObject> dices = new();
+    private readonly List<GameObject> players = new();
     private readonly BlockData[] blocksData = new BlockData[BLOCKS_COUNT];
-    private bool diceHasResult = true;
+    private bool toGetDiceResult = true;
+    private bool diceIsThrowable = false;
+    private int turn = 0;
+
+    void Awake() {
+        DiceHasResult += This_DiceHasResult;
+    }
 
     void Start() {
         for (int i = -4; i < 3; i++) {
@@ -38,6 +48,8 @@ public class GameBoardController : MonoBehaviour {
             dices[i].transform.SetParent(gameObject.transform);
             dices[i].name = $"Dice_{i}";
         }
+
+        diceIsThrowable = true;
     }
 
     void Update() {
@@ -50,7 +62,7 @@ public class GameBoardController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
             ThrowDice();
 
-        if (!diceHasResult)
+        if (!toGetDiceResult)
             GetDiceResult();
     }
 
@@ -62,12 +74,38 @@ public class GameBoardController : MonoBehaviour {
                 return;
             sum += dc.Value;
         }
-        Debug.Log(sum);
-        diceHasResult = true;
+        toGetDiceResult = true;
+        DiceHasResult?.Invoke(this, new DiceHasResultEventArgs(sum));
+    }
+
+    private void This_DiceHasResult(object sender, DiceHasResultEventArgs e) {
+        diceIsThrowable = true;
+        var pc = players[turn].GetComponent<PlayerController>();
+        Queue<Vector3> dest = new();
+        for (int i = 0; i < e.Points; i++) {
+            pc.AtBlock = (++pc.AtBlock) % BLOCKS_COUNT;
+            players[turn].transform.SetParent(blocks[pc.AtBlock].transform);
+            dest.Enqueue(GetPlayerMovedPosition(pc.AtBlock));
+        }
+        pc.Jump(dest);
+        if (++turn == players.Count)
+            turn = 0;
+    }
+
+    private Vector3 GetPlayerMovedPosition(int blockIndex) {
+        int playersCountOnBlock = -1;
+        foreach (var player in players)
+            if (player.GetComponent<PlayerController>().AtBlock == blockIndex)
+                playersCountOnBlock++;
+        return blocks[blockIndex].transform.TransformPoint(
+            new Vector3(-0.33f + 0.22f * playersCountOnBlock, 0.58f, 0.33f));
     }
 
     public void ThrowDice() {
-        diceHasResult = false;
+        if (!diceIsThrowable)
+            return;
+        toGetDiceResult = false;
+        diceIsThrowable = false;
         foreach (var dice in dices)
             dice.GetComponent<DiceController>().Throw();
     }
@@ -78,5 +116,17 @@ public class GameBoardController : MonoBehaviour {
 
     public void RotateCounterClockwise() {
         GetComponent<RotationController>().Rotate(new Vector3(0f, 1f, 0f), 90f, 2f);
+    }
+
+    public void GeneratePlayerAndStart(List<Color> playersColor) {
+        diceIsThrowable = true;
+        for (int i = 0; i < playersColor.Count; i++) {
+            var tmpPlayer = Instantiate(player);
+            players.Add(tmpPlayer);
+            tmpPlayer.transform.SetParent(blocks[0].transform);
+            tmpPlayer.transform.position = GetPlayerMovedPosition(0);
+            tmpPlayer.name = $"Player_{i}";
+            tmpPlayer.GetComponent<PlayerController>().SkinColor = playersColor[i];
+        }
     }
 }

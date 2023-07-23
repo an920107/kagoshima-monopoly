@@ -42,7 +42,7 @@ public class DiceController : MonoBehaviour {
         gameObject.transform.position = new Vector3(
             Random.Range(-10f, 10f), Random.Range(30f, 40f), Random.Range(-70f, -80f));
         rb.velocity = Vector3.zero;
-        rb.AddForce(0f, 0f, Random.Range(160f, 200f));
+        rb.AddForce(0f, 0f, Random.Range(160f, 190f));
         rb.AddTorque(Random.Range(0f, 90f), Random.Range(0f, 90f), Random.Range(0f, 90f));
         IsStill = false;
     }
