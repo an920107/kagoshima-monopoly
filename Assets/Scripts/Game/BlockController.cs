@@ -11,9 +11,14 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     [SerializeField] private TextMeshPro descriptionText;
 
     public int Number { get; set; }
+    public int Owner { get; set; }
     public BlockData Data { get; set; }
 
     private GameObject mainCamera;
+
+    void Awake() {
+        Owner = -1;
+    }
 
     void Start() {
         mainCamera = GameObject.Find("MainCamera");
@@ -37,7 +42,7 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 BlockLocation.LeftTop |
                 BlockLocation.RightTop)) > 0) {
             titleText.gameObject.transform.Rotate(new Vector3(0f, 0f, 1f), 45);
-            descriptionText.gameObject.transform.Rotate(new Vector3(0f, 0f, 1f), 45); 
+            descriptionText.gameObject.transform.Rotate(new Vector3(0f, 0f, 1f), 45);
         }
         titleText.gameObject.transform.Translate(new Vector3(0f, -0.5f, 0f), Space.Self);
         descriptionText.gameObject.transform.Translate(new Vector3(0f, -1f, 0f), Space.Self);
@@ -46,6 +51,16 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         descriptionText.text = Data.Description;
 
         GetComponent<Renderer>().material.color = Data.BackgroundColor;
+
+        if (Data.Type == BlockType.Land || Data.Type == BlockType.Facility)
+            Data.Price = int.Parse(Data.Description.Replace("¢D", "").Replace(",", ""));
+
+        if (Data.Type == BlockType.Land)
+            Data.Tolls = new() { Data.Price / 2, Data.Price, Data.Price / 2 * 3, Data.Price * 2, Data.Price * 3 };
+
+        if (Data.Type == BlockType.Facility)
+            Data.Tolls = new() { Data.Price / 5 * 2, Data.Price, Data.Price / 5 * 8, Data.Price / 5 * 12 };
+
     }
 
     void Update() {
@@ -104,6 +119,12 @@ public class BlockData {
 
     [JsonIgnore]
     public Color BackgroundColor { get; set; }
+
+    [JsonIgnore]
+    public int Price { get; set; }
+
+    [JsonIgnore]
+    public List<int> Tolls { get; set; }
 }
 
 public enum BlockLocation {

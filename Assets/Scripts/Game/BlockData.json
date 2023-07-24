@@ -3,7 +3,7 @@
         "type": "Start",
         "location": "RightBottom",
         "title": "開始",
-        "description": "經過獲得\n￥20,000",
+        "description": "經過獲得\n￥10,000",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "1": {
@@ -23,8 +23,8 @@
     "3": {
         "type": "Event",
         "location": "Bottom",
-        "title": "機會",
-        "description": "抽取一張機會卡",
+        "title": "事件",
+        "description": "抽取一張事件卡",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "4": {
@@ -86,8 +86,8 @@
     "12": {
         "type": "Event",
         "location": "Left",
-        "title": "機會",
-        "description": "抽取一張機會卡",
+        "title": "事件",
+        "description": "抽取一張事件卡",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "13": {
@@ -114,8 +114,8 @@
     "16": {
         "type": "Event",
         "location": "Top",
-        "title": "機會",
-        "description": "抽取一張機會卡",
+        "title": "事件",
+        "description": "抽取一張事件卡",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "17": {
@@ -177,8 +177,8 @@
     "25": {
         "type": "Event",
         "location": "Right",
-        "title": "機會",
-        "description": "抽取一張機會卡",
+        "title": "事件",
+        "description": "抽取一張事件卡",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "26": {

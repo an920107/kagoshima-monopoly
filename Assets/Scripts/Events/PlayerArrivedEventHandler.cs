@@ -1,0 +1,1 @@
+public delegate void PlayerArrivedEventHandler(object sender, PlayerArrivedEventArgs e);

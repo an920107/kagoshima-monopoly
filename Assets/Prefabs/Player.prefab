@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb98b86b04704546ba21d36b3f09c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 8300000, guid: 268d555007b83b64fb8e2d52f71a8765, type: 3}

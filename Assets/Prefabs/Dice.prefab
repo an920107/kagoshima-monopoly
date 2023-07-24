@@ -1606,6 +1606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff75b736e97a6498d8b12daea7ed8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 8300000, guid: 6f45324c6a007f74dbe38d604755d87d, type: 3}
+  audioCdTime: 0.5
 --- !u!1 &7548700858625693737
 GameObject:
   m_ObjectHideFlags: 0

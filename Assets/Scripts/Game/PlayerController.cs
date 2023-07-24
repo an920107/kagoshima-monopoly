@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public int AtBlock { get; set; }
+    [SerializeField] AudioClip collisionAudio;
 
+    public event PlayerArrivedEventHandler PlayerArrived;
+
+    public int Number { get; set; }
+    public int AtBlock { get; set; }
+    public int Money { get; set; }
+    public Dictionary<int, int> Lands { get; set; }
+    public List<int> Facilities { get; set; }
+
+    private AudioSource audioSource;
     private Queue<Vector3> dest = new();
 
     public Color SkinColor {
@@ -15,26 +24,18 @@ public class PlayerController : MonoBehaviour {
 
     void Awake() {
         AtBlock = 0;
+        Money = 500000;
+        Lands = new();
+        Facilities = new();
     }
 
     void Start() {
-
-    }
-
-    void FixedUpdate() {
-
-    }
-
-    void Update() {
-
-    }
-
-    void OnCollisionEnter(Collision collision) {
-        
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.GetComponent<PlayerController>() == null && GetComponent<Rigidbody>().velocity.y < 0) {
+            audioSource.PlayOneShot(collisionAudio);
             GetComponent<MeshCollider>().isTrigger = false;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (dest.Count > 0) {
@@ -47,8 +48,10 @@ public class PlayerController : MonoBehaviour {
 
     public void Jump(Queue<Vector3> dest) {
         this.dest = dest;
-        if (dest.Count == 0)
+        if (dest.Count == 0) {
+            PlayerArrived?.Invoke(this, new());
             return;
+        }
         GetComponent<MeshCollider>().isTrigger = true;
         Vector3 displacement = dest.Peek() - gameObject.transform.position;
 
