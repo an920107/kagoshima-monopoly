@@ -79,7 +79,7 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             gameObject.transform.position += new Vector3(0f, 0.5f, 0f);
 
             Vector3 pos = gameObject.transform.position;
-            mainCamera.GetComponent<MotivationController>().MoveTo(new Vector3(pos.x, 15f, pos.z - 10f), 1.5f);
+            mainCamera.GetComponent<MotivationController>().MoveTo(new Vector3(pos.x, 14f, pos.z - 14f), 1.5f);
         }
     }
 
