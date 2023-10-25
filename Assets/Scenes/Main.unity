@@ -2558,6 +2558,7 @@ MonoBehaviour:
   payMoney: {fileID: 3938731739436923259, guid: 2da5ededb9af42f45a293228bcb1aa41, type: 3}
   status: {fileID: 4923326439728983276, guid: 3e8c44b1a41c65c44941d523a7b47371, type: 3}
   salary: {fileID: 8609811221909271243, guid: 4c6da072c729ab24396a9bf960551500, type: 3}
+  jail: {fileID: 3938731739436923259, guid: c637efe4d55def8489895b3c43d4f175, type: 3}
 --- !u!1 &874481637
 GameObject:
   m_ObjectHideFlags: 0

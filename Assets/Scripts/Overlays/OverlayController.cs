@@ -11,6 +11,7 @@ public class OverlayController : MonoBehaviour {
     [SerializeField] private GameObject payMoney;
     [SerializeField] private GameObject status;
     [SerializeField] private GameObject salary;
+    [SerializeField] private GameObject jail;
 
     private readonly Stack<GameObject> prefabs = new();
 
@@ -75,13 +76,23 @@ public class OverlayController : MonoBehaviour {
     }
 
     public void ShowSalary(
-        BlockController blockController,
-        PlayerController playerController,
-        out SalaryController controller) {
-        
+            BlockController blockController,
+            PlayerController playerController,
+            out SalaryController controller) {
+
         gameObject.SetActive(true);
         prefabs.Push(Instantiate(salary, transform));
         controller = prefabs.Peek().GetComponent<SalaryController>();
         controller.SetUp(blockController, playerController);
+    }
+
+    public void ShowJail(
+            PlayerController playerController,
+            out JailController controller) {
+
+        gameObject.SetActive(true);
+        prefabs.Push(Instantiate(jail, transform));
+        controller = prefabs.Peek().GetComponent<JailController>();
+        controller.SetUp(playerController);
     }
 }

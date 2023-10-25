@@ -124,6 +124,10 @@ public class GameBoardController : MonoBehaviour {
             overlayController.ShowSalary(
                 bc, sender as PlayerController, out SalaryController controller);
             controller.SalaryComplete += Controller_SalaryComplete;
+        } else if (bc.Data.Type == BlockType.Jail) {
+            overlayController.ShowJail(
+                sender as PlayerController, out JailController controller);
+            controller.JailComplete += Controller_JailComplete;
         } else {
             NextTurn();
         }
@@ -185,6 +189,12 @@ public class GameBoardController : MonoBehaviour {
         if (e.Player.StepLeft == 0)
             NextTurn();
         else DiceHasResult.Invoke(this, new(e.Player.StepLeft));
+    }
+
+    private void Controller_JailComplete(object sender, JailCompleteEventArgs e) {
+        e.Player.IsPause = true;
+        overlay.SetActive(false);
+        NextTurn();
     }
 
     private void GameBoardController_NoMoneyComplete(object sender, NoMoneyCompleteEventArgs e) {

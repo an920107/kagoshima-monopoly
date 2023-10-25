@@ -74,4 +74,15 @@ namespace OverlayEvents {
     }
 
     public delegate void SalaryCompleteEventHandler(object sender, SalaryCompleteEventArgs e);
+
+
+    public class JailCompleteEventArgs : EventArgs {
+        public JailCompleteEventArgs(PlayerController player) {
+            Player = player;
+        }
+
+        public PlayerController Player { get; }
+    }
+
+    public delegate void JailCompleteEventHandler(object sender, JailCompleteEventArgs e);
 }

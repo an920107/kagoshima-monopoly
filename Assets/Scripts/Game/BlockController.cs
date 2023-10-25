@@ -148,7 +148,7 @@ public enum BlockType {
     Facility,
     Start,
     Event,
-    Stop,
+    Jail,
     Tax,
     House
 }
