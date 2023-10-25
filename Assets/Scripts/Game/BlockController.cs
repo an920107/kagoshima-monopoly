@@ -61,6 +61,11 @@ public class BlockController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         if (Data.Type == BlockType.Facility)
             Data.Tolls = new() { Data.Price / 5 * 2, Data.Price, Data.Price / 5 * 8, Data.Price / 5 * 12 };
 
+        if (Data.Type == BlockType.Start) {
+            int dolorSignIndex = Data.Description.IndexOf("¢D");
+            string dolorStr = Data.Description[dolorSignIndex..];
+            Data.Price = int.Parse(dolorStr.Replace("¢D", "").Replace(",", ""));
+        }
     }
 
     void Update() {
@@ -144,4 +149,6 @@ public enum BlockType {
     Start,
     Event,
     Stop,
+    Tax,
+    House
 }

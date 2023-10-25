@@ -74,7 +74,7 @@ public class ColorSettingController : MonoBehaviour {
 
     public void StartGame() {
         FindObjectOfType<GameBoardController>().GeneratePlayerAndStart(colorSettings.ConvertAll<Color>(
-            new((x) => { return colorsPool[x.GetComponentInChildren<PlayerSettingController>().ColorIndex].Item1; }
+            new(x => colorsPool[x.GetComponentInChildren<PlayerSettingController>().ColorIndex].Item1
         )));
     }
 }

@@ -54,4 +54,24 @@ namespace OverlayEvents {
     }
 
     public delegate void PayMoneyCompleteEventHandler(object sender, PayMoneyCompleteEventArgs e);
+
+
+    public class StatusCompleteEventArgs : EventArgs {
+        public StatusCompleteEventArgs() { }
+    }
+
+    public delegate void StatusCompleteEventHandler(object sender, StatusCompleteEventArgs e);
+
+
+    public class SalaryCompleteEventArgs : EventArgs {
+        public SalaryCompleteEventArgs(BlockController startBlock, PlayerController player) {
+            StartBlock = startBlock;
+            Player = player;
+        }
+
+        public BlockController StartBlock { get; }
+        public PlayerController Player { get; }
+    }
+
+    public delegate void SalaryCompleteEventHandler(object sender, SalaryCompleteEventArgs e);
 }

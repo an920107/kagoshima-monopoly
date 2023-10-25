@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     public int Money { get; set; }
     public Dictionary<int, int> Lands { get; set; }
     public List<int> Facilities { get; set; }
+    public int StepLeft { get; set; }
+    public bool IsPause { get; set; }
 
     private AudioSource audioSource;
     private Queue<Vector3> dest = new();
@@ -24,9 +26,11 @@ public class PlayerController : MonoBehaviour {
 
     void Awake() {
         AtBlock = 0;
-        Money = 500000;
+        Money = 20000;
         Lands = new();
         Facilities = new();
+        StepLeft = 0;
+        IsPause = false;
     }
 
     void Start() {

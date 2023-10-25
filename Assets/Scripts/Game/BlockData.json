@@ -98,10 +98,10 @@
         "background_color": [ 1, 0.9, 0.6, 1 ]
     },
     "14": {
-        "type": "Event",
+        "type": "House",
         "location": "LeftTop",
-        "title": "",
-        "description": "",
+        "title": "房屋仲介",
+        "description": "免費選擇一領地\n蓋房子",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "15": {
@@ -147,10 +147,10 @@
         "background_color": [ 0.75, 1, 0.75, 1 ]
     },
     "21": {
-        "type": "Event",
+        "type": "Tax",
         "location": "RightTop",
-        "title": "",
-        "description": "",
+        "title": "地價稅",
+        "description": "支付領地數\n200 倍的錢",
         "background_color": [ 1, 1, 1, 1 ]
     },
     "22": {

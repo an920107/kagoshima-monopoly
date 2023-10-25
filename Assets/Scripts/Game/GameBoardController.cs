@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameBoardController : MonoBehaviour {
 
     [SerializeField] private GameObject overlay;
+    [SerializeField] private GameObject turnDisplay;
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject dice;
     [SerializeField] private GameObject player;
@@ -21,7 +22,7 @@ public class GameBoardController : MonoBehaviour {
     private readonly BlockData[] blocksData = new BlockData[BLOCKS_COUNT];
     private bool toGetDiceResult = true;
     private bool diceIsThrowable = false;
-    private int turn = 0;
+    private int turn = -1;
     private OverlayController overlayController;
 
     void Awake() {
@@ -89,10 +90,15 @@ public class GameBoardController : MonoBehaviour {
     private void GameBoardController_DiceHasResult(object sender, DiceHasResultEventArgs e) {
         var pc = players[turn].GetComponent<PlayerController>();
         Queue<Vector3> dest = new();
+        pc.StepLeft = 0;
         for (int i = 0; i < e.Points; i++) {
             pc.AtBlock = (++pc.AtBlock) % BLOCKS_COUNT;
             players[turn].transform.SetParent(blocks[pc.AtBlock].transform);
             dest.Enqueue(GetPlayerMovedPosition(pc.AtBlock));
+            if (pc.AtBlock == 0) {
+                pc.StepLeft = e.Points - i - 1;
+                break;
+            }
         }
         pc.Jump(dest);
     }
@@ -114,6 +120,10 @@ public class GameBoardController : MonoBehaviour {
             overlayController.ShowBuyFacility(
                 bc, sender as PlayerController, out BuyFacilityController controller);
             controller.BuyFacilityComplete += GameBoardController_BuyFacilityComplete;
+        } else if (bc.Data.Type == BlockType.Start) {
+            overlayController.ShowSalary(
+                bc, sender as PlayerController, out SalaryController controller);
+            controller.SalaryComplete += Controller_SalaryComplete;
         } else {
             NextTurn();
         }
@@ -169,9 +179,21 @@ public class GameBoardController : MonoBehaviour {
         }
     }
 
+    private void Controller_SalaryComplete(object sender, SalaryCompleteEventArgs e) {
+        e.Player.Money += e.StartBlock.Data.Price;
+        overlay.SetActive(false);
+        if (e.Player.StepLeft == 0)
+            NextTurn();
+        else DiceHasResult.Invoke(this, new(e.Player.StepLeft));
+    }
+
     private void GameBoardController_NoMoneyComplete(object sender, NoMoneyCompleteEventArgs e) {
         overlay.SetActive(false);
         NextTurn();
+    }
+
+    private void GameBoardController_StatusComplete(object sender, StatusCompleteEventArgs e) {
+        overlay.SetActive(false);
     }
 
     private Vector3 GetPlayerMovedPosition(int blockIndex) {
@@ -193,12 +215,11 @@ public class GameBoardController : MonoBehaviour {
     }
 
     public void ShowStatus() {
-        Debug.Log("====Status====");
-        foreach (var player in players) {
-            var pc = player.GetComponent<PlayerController>();
-            Debug.Log(pc.Money);
-        }
-        Debug.Log("==============");
+        overlayController.ShowStatus(
+            blocks.ConvertAll<BlockController>(new(x => x.GetComponent<BlockController>())),
+            players.ConvertAll<PlayerController>(new(x => x.GetComponent<PlayerController>())),
+            out StatusController controller);
+        controller.StatusComplete += GameBoardController_StatusComplete;
     }
 
     public void RotateClockwise() {
@@ -210,7 +231,6 @@ public class GameBoardController : MonoBehaviour {
     }
 
     public void GeneratePlayerAndStart(List<Color> playersColor) {
-        diceIsThrowable = true;
         for (int i = 0; i < playersColor.Count; i++) {
             var tmpPlayer = Instantiate(player);
             players.Add(tmpPlayer);
@@ -222,11 +242,21 @@ public class GameBoardController : MonoBehaviour {
             pc.SkinColor = playersColor[i];
             pc.PlayerArrived += GameBoardController_PlayerArrived;
         }
+        NextTurn();
     }
 
     public void NextTurn() {
         if (++turn == players.Count)
             turn = 0;
+
+        var pc = players[turn].GetComponent<PlayerController>();
+        turnDisplay.GetComponent<Renderer>().material.color =
+            pc.SkinColor;
+
+        if (pc.IsPause) {
+            pc.IsPause = false;
+            NextTurn();
+        }
         diceIsThrowable = true;
     }
 }
